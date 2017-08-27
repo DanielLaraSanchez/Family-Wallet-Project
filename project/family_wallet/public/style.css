@@ -1,0 +1,51 @@
+body {
+ background-color: #9c9f84;
+background: white url('images/logo-W-fond-blanc.jpg');
+ color: white;
+ margin: 20px;
+ background-size: 30%;
+ background-repeat: no-repeat;
+ background-position: center;
+display: inline-block;
+ color: papayawhip;
+ font-family: 'Merriweather', serif;
+ padding: 0px;
+ margin: 0px;
+ position: relative;
+}
+
+
+
+* {
+  margin: 12px;
+  padding: 0px;
+}
+
+div {
+  background-color: white;
+  color: black;
+  position top: 80px;
+  padding: 80px;
+}
+
+h1 {
+
+  color: black;
+}
+
+.box {
+  display:grid;
+  width: 200px;
+  height: 400px;
+  background: grey;
+  color: black;
+  padding-top: 70px;
+}
+
+#two {
+  position: relative;
+  top: 300px;
+  left: 80px;
+  background: grey;
+  shape-inside: circle();
+}

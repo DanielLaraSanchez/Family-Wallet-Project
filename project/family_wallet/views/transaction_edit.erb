@@ -1,0 +1,35 @@
+<div class="box">
+
+
+
+
+
+<form action="/transactions/<%= @transactions.id %>/transaction_update" method= "POST">
+  <label for="quantity-field">Amount:</label>
+  <input type="text" name="quantity" id="quantity-field"
+    value="<%= @transactions.quantity %>" />
+
+    <label for="account-id-field">Account ID:</label>
+    <input type="text" name="account_id" id="account-field"
+      value="<%= @transactions.account_id %>" />
+
+
+      <label for="tag-id-field">Tag ID:</label>
+      <input type="text" name="tag_id" id="tag-id-field"
+        value="<%= @transactions.tag_id %>" />
+
+        <label for="type-field">Type of Account:</label>
+        <input type="text" name="type" id="type-field"
+          value="<%= @transactions.type %>" />
+
+          <label for="issuer-field">Issuer:</label>
+          <input type="text" name="issuer" id="issuer-field"
+            value="<%= @transactions.issuer %>" />
+
+
+
+      <input type="submit"   value="Update Transaction"/>
+
+ </form>
+
+ </div>

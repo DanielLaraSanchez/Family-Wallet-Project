@@ -1,0 +1,31 @@
+
+
+<h1>  <a href="/index">HomePage</a></p> </h1>
+
+
+<p class="btn--wrapper">
+  <a class="btn btn--action" href="/transactions/new_transaction">New Transaction</a>
+</p>
+
+<div class="box">
+
+
+
+<h2>all transactions in all the accounts of the family wallet</h2>
+
+
+
+
+
+<% for transaction in @transactions do %>
+
+        <p> Date : <%= transaction.date_of_transaction %></p>
+        <p> Issuer : <%= transaction.issuer %></p>
+        <p> Account : <%= transaction.account_id %></p>
+        <p> Type : <%= transaction.type %></p>
+        <p> Amount : <%= transaction.quantity %></p>
+        <p> Tag : <%= transaction.tag_id %></p>
+<p><a href="/transactions/<%= transaction.id %>">This Transaction</a></p>
+    <hr/>
+<% end %>
+</div>
