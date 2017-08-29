@@ -111,20 +111,21 @@ class Account
 
   end
 
- #  def transfer_credit( transfer )
- # transfer_funds =
- #
- #
- #  end
+  def self.credit()
 
-  #  def transfer_credit(account1, account2)
-  #    credit1 = account1.credit
-  #    credit2 = account2.credit
-  #    credit1 += credit2
-  #    self.update()
-   #
-   #
-  #  end
+    total = 0
+
+    accounts = Account.all
+    for account in accounts
+      total += account.credit
+    end
+
+    return total
+
+
+  end
+
+
 
   def transfer_credit( transfer, reciever_id)
     tag = Tag.new({'type' => 'Transfer', 'color' => 'yellow'})
@@ -149,19 +150,11 @@ class Account
     end
 
 
-  #  @tag_id = transaction['tag_id'].to_i()
-  #  @account_id = transaction['account_id'].to_i()
-  #  @date_of_transaction = transaction['date_of_transaction']
-  #  @type = transaction['type']
-  #  @quantity = transaction['quantity'].to_f
-  #  @issuer = transaction['issuer']
 
 
 
   def self.sum_transactions_amount()
-  # sql = 'SELECT SUM(quantity) AS total FROM transactions;'
-  # values = []
-  # result = SqlRunner.run(sql, values)[0]["total"].to_f()
+
     total = 0
     accounts = Transaction.all
     for account in accounts
@@ -182,10 +175,6 @@ class Account
   end
 
 
-  # def check_credit_all_accounts()
-  #
-  # end
-  #
-  # def check_spenses_all_accounts
+
 
 end
