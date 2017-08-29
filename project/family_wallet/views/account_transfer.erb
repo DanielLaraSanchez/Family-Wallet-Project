@@ -1,0 +1,25 @@
+<h1>transfer money</h1>
+
+
+<form  action="/accounts/<%= @account.id %>/account_transfer" method="Post">
+
+<label for="account-transfer-field">Account Reciever</label>
+<select name="reciever_id" id="account-transfer-field">
+
+  <% for account in @accounts %>
+  <option value= "<%= account.id %>"><%= account.holder_name %> Saving account</option>
+  <% end %>
+  </select>
+  </label>
+
+
+
+
+
+  <label for="quantity-field">Amount:</label>
+  <input type="text" name="transfer" id="quantity-field"/>
+
+
+    <input class="btn btn--action" type='submit' value="Submit">
+
+</form>

@@ -8,12 +8,12 @@ attr_accessor(:tag_id, :account_id, :date_of_transaction, :type, :quantity, :iss
 attr_reader(:id)
 def initialize ( transaction )
 
-@id = transaction['id'].to_i() if transaction['id'].to_i()
+@id = transaction['id'].to_i() 
 @tag_id = transaction['tag_id'].to_i()
 @account_id = transaction['account_id'].to_i()
 @date_of_transaction = transaction['date_of_transaction']
 @type = transaction['type']
-@quantity = transaction['quantity']
+@quantity = transaction['quantity'].to_f
 @issuer = transaction['issuer']
 
 
@@ -21,10 +21,10 @@ end
 
 def save()
 sql = ' INSERT INTO transactions
-(tag_id, account_id, date_of_transaction, type, quantity, issuer)
-VALUES ($1, $2, $3, $4, $5, $6)
+(tag_id, account_id, type, quantity, issuer)
+VALUES ($1, $2, $3, $4, $5)
 RETURNING *;'
-values = [@tag_id, @account_id, @date_of_transaction, @type, @quantity, @issuer]
+values = [@tag_id, @account_id, @type, @quantity, @issuer]
 transaction_data = SqlRunner.run(sql, values)
 @id = transaction_data.first['id'].to_i()
 end
@@ -33,6 +33,12 @@ def delete()
 sql = 'DELETE FROM transactions WHERE id = $1'
 values = [@id]
 transaction_data = SqlRunner.run(sql, values)
+end
+
+def self.delete_all() #why does it not have * and no values?
+  sql = "DELETE FROM transactions"
+  values = []
+  SqlRunner.run( sql, values )
 end
 
 def update()
@@ -58,7 +64,7 @@ result = transaction_data.map { |transaction| Transaction.new(transaction)}
 return result
 end
 
-def transactions_by_tags()
+def transactions_by_tags()#why do you
   sql = 'SELECT * FROM tags
   WHERE id = $1'
   values = [@tag_id]
@@ -76,6 +82,23 @@ return Account.new( results.first )
 
 end
 
+
+def self.sum_transactions_amount()
+# sql = 'SELECT SUM(quantity) AS total FROM transactions;'
+# values = []
+# result = SqlRunner.run(sql, values)[0]["total"].to_f()
+  total = 0
+  transactions = Transaction.all
+  for transaction in transactions
+    if transaction.type == 'Income'
+      total += transaction.quantity
+    else
+      total -= transaction.quantity
+    end
+  end
+
+  return total
+end
 
 
 

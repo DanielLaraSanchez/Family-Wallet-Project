@@ -1,7 +1,7 @@
 
 <h1>  <a href="/index">HomePage</a></p> </h1>
 
-<h1>all transactions in all the accounts of the family wallet</h1>
+<h1>all accounts</h1>
 
   <p><a href="/accounts/new_account">New Account</a></p>
 
@@ -12,9 +12,12 @@
     <p> Account number : <%= account.account_number %></p>
     <p> Name Holder : <%= account.holder_name %></p>
     <p> Last Name : <%= account.holder_last_name %></p>
+    <p> Credit : <%= account.credit %></p>
+
 
     <p> Type : <%= account.type %></p>
 <p><a href="/accounts/<%= account.id %>">This Account</a></p>
+<p><a href="/accounts/<%= account.id %>/account_transfer">Transfer money</a></p>
 
     <hr/>
 <% end %>

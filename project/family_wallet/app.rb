@@ -3,6 +3,10 @@ require( 'sinatra/contrib/all' )
 require_relative('./models/accounts')
 require_relative('./models/tags')
 require_relative('./models/transactions')
+require("pry")
+
+also_reload('./controllers/*')
+also_reload('./models/*')
 
 get '/index' do
   @accounts = Account.all()
@@ -35,20 +39,76 @@ post '/accounts' do
 end
 
 get '/transactions/new_transaction' do
+  #get all the account and make @accounts
+  @accounts = Account.all
+  @tags = Tag.all
   erb ( :new_transaction )
 end
 
 post '/transactions' do
-  transaction = Transaction.new( params )
-  transaction.save
+  # transaction = Transaction.new( params )
+  # transaction.save
+  #
+  # account = Account.find(params["account_id"])
+  # account.add_credit( params["quantity"] )
+
+  account = Account.find(params["account_id"])
+  account.new_transaction(params)
+
   redirect to ("/transactions")
 end
+
+
 
 get '/accounts/:id' do
 
   @accounts = Account.find( params[:id])
   erb(:show_account)
 end
+
+
+
+get '/accounts/:id/account_transactions' do
+  @accounts = Account.find ( params[:id])
+  @transactions = @accounts.transactions()
+  erb(:account_transactions)
+end
+
+post '/accounts/:id/account_edit' do
+  @accounts = Account.find ( params[:id])
+  erb(:account_edit)
+end
+
+post '/accounts/:id/account_update' do
+  @accounts = Account.new( params[:id])
+  erb(:account_update)
+end
+
+get '/accounts/:id/account_transfer' do
+  @account = Account.find(params[:id])
+  @accounts = Account.all()
+
+  # @accounts.transfer_credit
+  erb(:account_transfer)
+end
+
+post '/accounts/:id/account_transfer' do
+  # @account = Account.all()
+  @account = Account.find( params[:id])
+  @account.transfer_credit(params['transfer'], params['reciever_id'])
+  redirect to ("/accounts") # make this a redirect
+end
+
+post '/accounts/:id/account_delete' do
+  @accounts = Account.find( params[:id])
+  @accounts.delete()
+  redirect to ("/transactions")
+end
+
+
+
+
+
 
 get '/transactions/:id'  do
 
@@ -66,6 +126,15 @@ post '/transactions/:id/transaction_update' do
   erb(:transaction_update)
 
 end
+
+post '/transactions/:id/transaction_delete' do
+  @transactions = Transaction.find( params[:id])
+  @transactions.delete()
+redirect to ("/transactions")
+end
+
+
+
 
 
   # post '/bitings' do

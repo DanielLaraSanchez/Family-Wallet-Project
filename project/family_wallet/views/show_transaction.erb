@@ -15,6 +15,7 @@
 <p>Type: <%= @transactions.type %></p>
 <p>Amount: <%= @transactions.quantity %></p>
 
+
 </div>
 
 
@@ -25,7 +26,11 @@
     <input type="submit"   value="edit"/>
     </form>
 
-  
+    <form action="/transactions/<%= @transactions.id %>/transaction_delete" method= "POST">
+    <input type="submit"   value="delete"/>
+    </form>
+
+
 
 
   </ul>

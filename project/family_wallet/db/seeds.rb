@@ -2,8 +2,9 @@ require('pry')
 require_relative('../models/transactions.rb')
 require_relative('../models/accounts.rb')
 require_relative('../models/tags.rb')
-
-
+Transaction.delete_all
+Account.delete_all
+Tag.delete_all
 
 account1 = Account.new({
   'holder_name' => 'Daniel',
@@ -81,10 +82,10 @@ account1 = Account.new({
 
 
   transaction1 = Transaction.new({
-    'tag_id' => 1,
-    'account_id' => 1,
+    'tag_id' => tag1.id,
+    'account_id' => account1.id,
     'date_of_transaction' => '12-01-2017',
-    'type' => 'spense',
+    'type' => 'Expense',
     'quantity' => 345.34,
     'issuer' => 'Tesco'
   })
@@ -92,8 +93,8 @@ account1 = Account.new({
   #
   #
     transaction2 = Transaction.new({
-      'tag_id' => 2,
-      'account_id' => 3,
+      'tag_id' => tag2.id,
+      'account_id' => account3.id,
       'date_of_transaction' => '1-1-2017',
       'type' => 'Income',
       'quantity' => 232.45,
@@ -103,10 +104,10 @@ account1 = Account.new({
 
 
       transaction3 = Transaction.new({
-        'tag_id' => 3,
-        'account_id' => 2,
+        'tag_id' => tag3.id,
+        'account_id' => account2.id,
         'date_of_transaction' => '03-02-2017',
-        'type' => 'spense',
+        'type' => 'Expense',
         'quantity' => 32.84,
         'issuer' => 'Sainsburys'
       })
@@ -114,10 +115,10 @@ account1 = Account.new({
 
 
         transaction4 = Transaction.new({
-          'tag_id' => 1,
-          'account_id' => 1,
+          'tag_id' => tag1.id,
+          'account_id' => account1.id,
           'date_of_transaction' => '12-01-2017',
-          'type' => 'spense',
+          'type' => 'Expense',
           'quantity' => 345.45,
           'issuer'   => 'Easyjet'
         })

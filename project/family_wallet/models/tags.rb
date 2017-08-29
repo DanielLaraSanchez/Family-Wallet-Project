@@ -49,6 +49,12 @@ end
     tag_data = SqlRunner.run(sql, values)
   end
 
+  def self.delete_all() #why does it not have * and no values?
+    sql = "DELETE FROM tags"
+    values = []
+    SqlRunner.run( sql, values )
+  end
+
   def update()
     sql= 'UPDATE  tags SET (type, color)
     = ($1, $2) WHERE id = $3'

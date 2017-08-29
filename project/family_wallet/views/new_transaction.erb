@@ -6,11 +6,34 @@
 
 <form action="/transactions" method= "POST">
 
-  <label for="type-field">TYPE:</label>
-  <input type="text" name="type" id="type_field"/>
+  <label for="transaction-type-select">Transaction type:</label>
+      <select name="type" id="account-type-select">
 
 
-  <label for="quantity-field">Quantity:</label>
+        <option value= <%="income" %>>Income</option>
+        <option value= <%="expense" %>>Spense</option>
+
+
+
+      </select>
+
+
+      <label for="transaction-type-select">Tag Color:</label>
+          <select name="tag_id" id="tag-select">
+
+            <% for tag in @tags %>
+            <option value= "<%=tag.id %>"><%= tag.color%>Tag color</option>
+            <% end %>
+
+
+
+          </select>
+
+
+
+
+
+  <label for="quantity-field">Amount:</label>
   <input type="text" name="quantity" id="quantity-field"/>
 
 
@@ -19,12 +42,19 @@
   <label for="last-name-field">ISSUER:</label>
   <input type="text" name="issuer" id="issuer-field"/>
 
-  <label for="tag-id-field">Tag: </label>
-  <input type="text" name="tag_id" id="tag-field"/>
 
 
-  <label for="account-field">Account:</label>
-  <input type="text" name="account_id" id="issuer-field"/>
+  <label for="account-type-select">Select Account :</label>
+      <select name= "account_id" id="account-select">
+        <% for account in @accounts %>
+          <option value= "<%= account.id %>"><%= account.holder_name %>Saving account</option>
+        <% end %>
+        </select>
+        </label>
+
+      </select>
+
+
 
 
    <input class="btn btn--action" type='submit' value="Submit">

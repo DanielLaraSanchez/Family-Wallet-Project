@@ -1,0 +1,21 @@
+<h1>all transactions in this account</h1>
+
+<h1>  <a href="/index">HomePage</a></p> </h1>
+
+<h1>all transactions</h1>
+
+  <p><a href="/transactions/new_transaction">New Transaction</a></p>
+
+<div>
+
+<% for transaction in @transactions do %>
+
+    <p> Amount : <%= transaction.quantity %></p>
+
+
+
+
+
+    <hr/>
+<% end %>
+</div>
