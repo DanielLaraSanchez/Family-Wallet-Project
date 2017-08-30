@@ -1,6 +1,6 @@
 require('pg')
 # require_relative('./models/accounts.rb')
-# require_relative('./models/tags.rb')
+require_relative('./tags.rb')
 require_relative('../db/sql_runner.rb')
 
 class Transaction
@@ -64,14 +64,23 @@ result = transaction_data.map { |transaction| Transaction.new(transaction)}
 return result
 end
 
-def transactions_by_tags()#why do you
-  sql = 'SELECT * FROM tags
-  WHERE id = $1'
-  values = [@tag_id]
+def self.transactions_by_tags(tag_id)#why do you
+  sql = 'SELECT * FROM transactions
+  WHERE tag_id = $1'
+  values = [tag_id]
   results = SqlRunner.run(sql, values)
-  return Tag.new( results.first )
+  tags_transaction = results.map { |tags_hash| Transaction.new(tags_hash)}
+  return tags_transaction
 
 end
+
+# def transactions()
+#   sql = "SELECT * FROM transactions WHERE account_id = $1;"
+#   values = [@id]
+#   result = SqlRunner.run(sql, values)
+#   account_transactions = result.map {|transaction_hash| Transaction.new(transaction_hash)}
+#   return account_transactions
+# end
 
 def transactions_by_accounts()
 sql = 'SELECT * FROM accounts

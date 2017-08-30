@@ -109,7 +109,10 @@ end
 
 
 
-
+get '/transactions/transactions_by_tag/:id' do
+  @transactions = Transaction.transactions_by_tags(params[:id])
+  erb(:transactions_by_tag)
+end
 
 
 get '/transactions/:id'  do
@@ -134,6 +137,7 @@ post '/transactions/:id/transaction_delete' do
   @transactions.delete()
 redirect to ("/transactions")
 end
+
 
 
 
