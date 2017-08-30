@@ -1,4 +1,24 @@
-/*body {
+
+
+
+/*.box {
+  display: flex;
+  width: 200px;
+  height: 400px;
+  background: grey;
+  color: black;
+  padding-top: 70px;
+}
+
+#two {
+  position: relative;
+  top: 300px;
+  left: 80px;
+  background: grey;*/
+
+
+
+  /*body {
  background-color: white;
 
  background-position: right;
@@ -31,24 +51,10 @@ h1 {
   color: black;
 }
 
-.box {
-  display:grid;
-  width: 200px;
-  height: 400px;
-  background: grey;
-  color: black;
-  padding-top: 70px;
+
 }
 
-#two {
-  position: relative;
-  top: 300px;
-  left: 80px;
-  background: grey;
-  shape-inside: circle();
-}
-
-.test {
+/*.test {
   float: left;
   width: auto;
 }

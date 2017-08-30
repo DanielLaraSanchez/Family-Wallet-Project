@@ -8,7 +8,7 @@ attr_accessor(:tag_id, :account_id, :date_of_transaction, :type, :quantity, :iss
 attr_reader(:id)
 def initialize ( transaction )
 
-@id = transaction['id'].to_i() 
+@id = transaction['id'].to_i()
 @tag_id = transaction['tag_id'].to_i()
 @account_id = transaction['account_id'].to_i()
 @date_of_transaction = transaction['date_of_transaction']
@@ -82,6 +82,16 @@ return Account.new( results.first )
 
 end
 
+def self.transactions_by_date(number_of_days)
+sql = "SELECT * FROM transactions
+WHERE date_of_transaction > current_date - interval '#{number_of_days} day'"
+values = []
+transaction_data = SqlRunner.run(sql, values)
+results = transaction_data.map { |transaction| Transaction.new(transaction) }
+return results
+end
+
+
 
 def self.sum_transactions_amount()
 # sql = 'SELECT SUM(quantity) AS total FROM transactions;'
@@ -99,6 +109,7 @@ def self.sum_transactions_amount()
 
   return total
 end
+
 
 
 

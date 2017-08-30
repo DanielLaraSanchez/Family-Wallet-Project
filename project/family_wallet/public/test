@@ -1,3 +1,6 @@
+
+
+
 <style>
 
 body{
@@ -8,10 +11,10 @@ body{
 }
 
 .nav{
-  width:80%;
+  width:100%;
   background-color: #000033;
-  height: 130px;
-  margin-top: 0px;
+  height: 100px;
+  margin-top: 100px;
   opacity: 0.6;
 
 }
@@ -44,7 +47,7 @@ a{
 }
 
 a:hover{
-  background:#669901;
+  background:#669900;
   transition:0.6s;
 
 }
@@ -61,23 +64,23 @@ a:hover{
 
 <li><a>Credit <%= Account.credit %>£ </a></li>
 
-<li><a href="/transactions">Transactions</a></li>
-
+<li><a href="/transactions">Transactions</a>
+    <ul>
       <li><a class="btn btn--action" href="/transactions/new_transaction">New Transaction</a></li>
       <li><a href="/transactions">Transactions</a></li>
 
 
+    </ul>
 
 
 
-
-
+</li>
 
 
 <li><a href="/accounts">FAMILY WALLET</a></li>
 
 
-<li><a href="/tags">Tags</a></li>
+<li><a href="/tags">TAGS</a></li>
 
 
 

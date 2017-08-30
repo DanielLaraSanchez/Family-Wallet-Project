@@ -8,6 +8,8 @@ require("pry")
 also_reload('./controllers/*')
 also_reload('./models/*')
 
+
+
 get '/index' do
   @accounts = Account.all()
   erb( :index )
