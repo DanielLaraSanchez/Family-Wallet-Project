@@ -1,5 +1,5 @@
 
-<h1>  <a href="/index">HomePage</a></p> </h1>
+<h1>  <a href="/index">HomePage</a> </h1>
 <div class="box">
 
 
@@ -9,9 +9,8 @@
 <% for tag in @tags do %>
 
 
-    <p> color: <%=  tag.color %> </p>
-      <p> type: <%= tag.type %></p>
-      <p> id: <a href="/transactions/transactions_by_tag/<%= tag.id %>"><%= tag.id %></a></p>
+
+      <p> <a href="/transactions/transactions_by_tag/<%= tag.id %>"><%= tag.color %></a></p>
     <hr/>
 <% end %>
 

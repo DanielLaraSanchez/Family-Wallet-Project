@@ -8,14 +8,14 @@
   <body>
     <div class="box-1">
 
-    <li><a>Total Credit <%= Account.credit %>£ </a></li>
+    <a class="test">Total Credit <%= Account.credit %>£ </a>
     </div>
-    <p><%= DateTime.now.strftime("%d/%m/%Y %H:%M") %></p>
+
     <div class="nav">
       <ul>
 
 
-        <li><a href="/transactions">Transactions</a></li>
+
 
         <li><a class="btn btn--action" href="/transactions/new_transaction">New Transaction</a></li>
 

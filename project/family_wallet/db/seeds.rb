@@ -1,4 +1,4 @@
-require('pry')
+
 require_relative('../models/transactions.rb')
 require_relative('../models/accounts.rb')
 require_relative('../models/tags.rb')
@@ -130,6 +130,3 @@ account1 = Account.new({
               transaction4.save()
 
 # @tags_id, @accounts_id, @date, @income, @espenses
-
-binding.pry
-nil

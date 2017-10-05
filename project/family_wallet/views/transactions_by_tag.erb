@@ -1,4 +1,4 @@
-<p>transactions by tag</p>
+<div class="box">
 
 
 
@@ -15,7 +15,8 @@
         <p> Account : <%= transaction.account_id %></p>
         <p> Type : <%= transaction.type %></p>
         <p> Amount : <%= transaction.quantity %></p>
-        <p> Tag : <%= transaction.tag_id %></p>
+        
 <p><a href="/transactions/<%= transaction.id %>">This Transaction</a></p>
     <hr/>
 <% end %>
+</div>

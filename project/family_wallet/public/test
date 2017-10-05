@@ -5,7 +5,7 @@
 
 body{
   margin: 0;
-  background:url('/images/family-wallpaper.jpg');
+  background:url('/images/familywallet.jpg');
   background-size: cover;
 
 }

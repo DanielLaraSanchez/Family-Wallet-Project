@@ -1,7 +1,7 @@
 require('pg')
 require_relative('../db/sql_runner.rb')
 require_relative('./transactions.rb')
-require("pry")
+
 
 
 class Account

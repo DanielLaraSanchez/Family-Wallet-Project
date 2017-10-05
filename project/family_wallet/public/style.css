@@ -2,12 +2,21 @@
 
 body{
   margin: 0;
-  background-image:url('/images/family-wallpaper.jpg');
+  background-image:url('/images/familywallet.jpg');
   background-size: cover;
   /*background-size: contain;*/
   background-repeat: no-repeat;
   background-attachment: fixed;
+  padding-left:10px;
 
+
+}
+.test{
+  background-color: #000033;
+  opacity: 1.0;
+  margin-left: 60px;
+  width:70%;
+  margin-top: 0px;
 
 }
 
@@ -18,18 +27,19 @@ body{
 }
 
 .box-1{
-  background-color: #ee8811;
+  /*background-color: #ee8811;
   opacity: 0.6;
   width:15%;
   float: right;
-  margin-right: 60px;
-  padding-top: 15px;
-  margin-top: 35px;
+  margin-right: 50px;
+  padding: 0px;
+  padding-top: 5px;
+  margin-top: 30px;*/
 }
 
 .box-2{
   background-color: #ee8811;
-  
+
   opacity: 0.6;
   width:15%;
   float: center;
@@ -49,8 +59,8 @@ body{
 
 ul{
   list-style: none;
-  padding: 30px;
-  margin: 0;
+  padding: 10px;
+  margin: 10;
   position: absolute;
 
 }
@@ -58,6 +68,7 @@ ul{
 li{
   float: left;
   margin-top: 30px;
+  margin-left: 50px;
 }
 
 a{
@@ -67,6 +78,7 @@ a{
   text-decoration: none;
   font-size: 20px;
   text-align: center;
+  padding-left: 10px
   padding: 10px;
   border-radius: 10px;
   font-family: Arial;
@@ -77,5 +89,10 @@ a{
 a:hover{
   background:#669901;
   transition:0.6s;
+
+}
+
+p{
+  font-size: 40px;
 
 }

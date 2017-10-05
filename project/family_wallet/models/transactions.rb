@@ -74,6 +74,15 @@ def self.transactions_by_tags(tag_id)#why do you
 
 end
 
+def self.transaction_by_accounts(account_id)
+sql = 'SELECT * FROM transactions
+WHERE account_id = $1'
+values = [account_id]
+results = SqlRunner.run(values, sql)
+transactions_accounts_hash = results.map { |account| Transaction.new(account)}
+return transactions_accounts_hash
+end
+
 # def transactions()
 #   sql = "SELECT * FROM transactions WHERE account_id = $1;"
 #   values = [@id]
